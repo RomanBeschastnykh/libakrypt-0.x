@@ -115,6 +115,11 @@
 #if defined(__unix__) || defined(__APPLE__)
  static const char *asn1_dev_random_n[] =  { "dev-random", "/dev/random", NULL };
  static const char *asn1_dev_random_i[] =  { "1.2.643.2.52.1.1.2", NULL };
+ 
+ static const char *gost_dev_random_i[] = { "1.2.643.2.52.1.1.5", NULL};
+ 
+ static const char *gost_dev_random_n[] = { "dev-random", "/dev/random", NULL };
+ 
  static const char *asn1_dev_urandom_n[] = { "dev-urandom", "/dev/urandom", NULL };
  static const char *asn1_dev_urandom_i[] = { "1.2.643.2.52.1.1.3", NULL };
 #endif
@@ -457,6 +462,12 @@ static struct oid libakrypt_oids[] =
   {{ sizeof( struct random ), (ak_function_create_object *)ak_random_create_lcg,
                               (ak_function_destroy_object *)ak_random_destroy, NULL, NULL, NULL },
                                                                 ak_object_undefined, NULL, NULL }},
+                                                                
+                                                                
+ { random_generator, algorithm, gost_dev_random_i, gost_dev_random_n, NULL, 
+  {{sizeof( struct random ), (ak_function_create_object *) ak_hash_create_streebog512, (ak_function_destroy_object *) ak_random_destroy, NULL, NULL, NULL },
+ak_object_undefined,NULL,NULL }},                                                                
+                                                                                                                            
 #if defined(__unix__) || defined(__APPLE__)
  { random_generator, algorithm, asn1_dev_random_i, asn1_dev_random_n, NULL,
   {{ sizeof( struct random ), (ak_function_create_object *)ak_random_create_random,

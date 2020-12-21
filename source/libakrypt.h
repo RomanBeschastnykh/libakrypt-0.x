@@ -178,6 +178,8 @@ extern "C" {
  dll_export bool_t ak_libakrypt_test_acpkm( void );
 /*! \brief Выполнение тестовых примеров для алгоритмов выработки и проверки электронной подписи */
  dll_export bool_t ak_libakrypt_test_sign( void );
+ /*! \brief Тестирование корректной работы класса ГПСЧ, регламентируемого Р 1323565.1.006—2017*/
+ dll_export bool_t test_ak_gost_1323565_1_006_2017( void );
 
 /** @}*//** @}*/
 
@@ -438,6 +440,8 @@ extern "C" {
  dll_export int ak_random_randomize( ak_random , const ak_pointer , const ssize_t );
 /*! \brief Выработка псевдо-случайных данных. */
  dll_export int ak_random_ptr( ak_random , const ak_pointer , const ssize_t );
+ /*Выработка ПСЧ в соответствии с ГОСТ 1-323565-1.006-2017*/
+dll_export int *ak_gost_1323565_1_006_2017( ak_oid, ak_random );
 /*! \brief Некриптографическая функция генерации случайного 64-х битного целого числа. */
  dll_export ak_uint64 ak_random_value( void );
 /*! \brief Уничтожение данных, хранящихся в полях структуры struct random. */
