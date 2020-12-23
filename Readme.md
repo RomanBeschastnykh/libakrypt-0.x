@@ -29,7 +29,7 @@ We have implementation of:
 13. Low level ASN.1 routines for data encoding with support of DER and PEM formats;
 14. x509 certificate management, including public keys formats described by R 1323565.023-2018;
 15. Rolf Blom's scheme for symmetric keys generation;
-16. PRNG described by R 1323565.1.006-2017.
+16. PRNG described by R 1323565.1.006-2017 (https://meganorm.ru/Data2/1/4293740/4293740893.pdf).
 
 The library can be compiled with many compilers,
 such as `gcc`, `clang`, `Microsoft Visual C`, `TinyCC` and `icc`.
